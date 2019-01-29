@@ -1,0 +1,22 @@
+{
+  "name": "webRSS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "element-ui": "^2.5.2",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9",
+    "vue-server-renderer": "^2.5.22",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <!-- 使用双花括号(double-mustache)进行 HTML 转义插值(HTML-escaped interpolation) -->
+    <title>{{ title }}</title>
+    <script>
+        //屏幕适应
+        (function (win, doc) {
+            if (!win.addEventListener) return;
+            function setFont() {
+                var html = document.documentElement;
+                var k = 750;
+                var size = html.clientWidth / k * 100;
+                html.style.fontSize = (size > 40 ? 40 : size) + "px";
+            }
+            setFont();
+            setTimeout(function () {
+                setFont();
+            }, 300);
+            doc.addEventListener('DOMContentLoaded', setFont, false);
+            win.addEventListener('resize', setFont, false);
+            win.addEventListener('load', setFont, false);
+        })(window, document);
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <!--vue-ssr-outlet-->
+    </div>
+    {{{syncDataScript}}}
+    <!-- 使用三花括号(triple-mustache)进行 HTML 不转义插值(non-HTML-escaped interpolation) -->
+    {{{ clientScript}}}
+</body>
+
+</html>
