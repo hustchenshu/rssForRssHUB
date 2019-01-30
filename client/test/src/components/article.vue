@@ -13,6 +13,7 @@
 
 <style scoped>
 .title{
+    font-size: 0.3rem;
     margin: .1rem 0;
     white-space: nowrap;
     overflow: hidden;

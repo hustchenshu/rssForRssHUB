@@ -1,0 +1,16 @@
+{
+    "name": "ALL IN ONE",
+    "short_name": "AIO",
+    "description": "GET ALL RSS FOR YOU", 
+    "display": "standalone",
+    "start_url": "/",
+    "theme_color": "#313131", 
+    "background_color": "#313131",
+    "icons": [ 
+        {
+            "src": "../../public/img/icon.png",
+            "sizes": "48x48",
+            "type": "image/webp" 
+        }
+    ]
+}

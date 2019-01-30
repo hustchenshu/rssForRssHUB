@@ -1,18 +1,23 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <!-- <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/> -->
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no" /> -->
+    <!-- <link rel="manifest" href="manifest.json" /> -->
     <!-- 使用双花括号(double-mustache)进行 HTML 转义插值(HTML-escaped interpolation) -->
+    <link rel="icon" href="../../public/img/icon.png" type="image/png" />
+    <link rel="manifest" href="./public/manifest.json">
     <title>{{ title }}</title>
     <script>
         //屏幕适应
         (function (win, doc) {
             if (!win.addEventListener) return;
+            const ratio = window.devicePixelRatio || 2;
             function setFont() {
                 var html = document.documentElement;
                 var k = 750;
                 var size = html.clientWidth / k * 100;
-                html.style.fontSize = (size > 40 ? 40 : size) + "px";
+                html.style.fontSize = (size > 30 ? 30 : size) + "px";
             }
             setFont();
             setTimeout(function () {
@@ -22,6 +27,21 @@
             win.addEventListener('resize', setFont, false);
             win.addEventListener('load', setFont, false);
         })(window, document);
+
+        (function () {
+            var width = parseInt(window.screen.width)
+            var designWidth = 450
+            var scale = width / designWidth
+            var userAgent = navigator.userAgent.toLowerCase()
+            var metaHead = '<meta name="viewport" content="width=' + designWidth + ','
+            if (/android (\d+\.\d+)/.test(userAgent)) {
+                if (parseFloat(RegExp.$1) > 2.3) metaHead += 'minimum-scale=' + scale + ',maximum-scale=' + scale + ','
+            } else {
+                metaHead += 'user-scalable=no,';
+            }
+            metaHead += 'target-densitydpi=device-dpi">';
+            document.write(metaHead);
+        })()
     </script>
 </head>
 

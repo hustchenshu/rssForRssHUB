@@ -1,6 +1,7 @@
 exports.default = [
     {
         name:"技术圈",
+        icon:"tech.png",
         rss:[
             {
                 name:"掘金前端",
@@ -33,11 +34,35 @@ exports.default = [
             {
                 name:"hust",
                 src:"https://rsshub.app/hust/auto/notice/0"
+            },
+            {
+                name:"gitLab",
+                src:"https://rsshub.app/gitlab/explore/trending"
+            },
+            {
+                name:"技术头条",
+                src:"https://rsshub.app/blogread/newest"
+            },
+            {
+                name:"hust",
+                src:"https://rsshub.app/hust/auto/notice/0"
+            },
+            {
+                name:"gitLab",
+                src:"https://rsshub.app/gitlab/explore/trending"
+            },
+            {
+                name:"技术头条",
+                src:"https://rsshub.app/blogread/newest"
+            },
+            {
+                name:"hust",
+                src:"https://rsshub.app/hust/auto/notice/0"
             }
-        
         ]
     },{
         name:"电影",
+        icon:"movie.png",
         rss:[
             {
                 name:"电影天堂",
@@ -51,6 +76,7 @@ exports.default = [
     },
     {
         name:"新闻圈",
+        icon:"news.png",
         rss:[
             {
                 name:"南方周末-科技",
