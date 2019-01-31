@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './index.vue'
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI);
 
 export function createApp(data) {
     const app = new Vue({

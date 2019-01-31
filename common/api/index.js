@@ -16,7 +16,9 @@ exports.getContent = function(url){
                     resolve(re);
                 });
             },(err)=>{
+                
                 console.log(err)
+                reject(err)
             })
         })
     }else{

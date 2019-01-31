@@ -16,7 +16,7 @@
         
         <div :class="['content',{'show':show}]">
             <nav class="header">
-                <div style="width:.8rem;height:.8rem;position:absolute;left:0">
+                <div style="width:.8rem;height:.8rem;position:absolute;left:0;z-index:222;background-color: aliceblue;">
                     <div class="menu" 
                         @click="toggleSider" 
                         :style="{backgroundImage:`url(${expandImg})`}">
@@ -38,15 +38,46 @@
                     </li>
                 </ul>
             </nav>
-            <SiteRSS v-if="result && result.item"
-                :item="result.item"
-            ></SiteRSS>
+
+            <div class="wrap">
+                <div class="rsscontent">
+                    <SiteRSS v-if="result && result.item"
+                        :item="result.item"
+                    ></SiteRSS>
+                    <div class="ops" v-else></div>
+                </div>
+                <!-- <div class="recommend">
+
+                </div> -->
+            </div>
+
         </div>
 
     </div>
 </template>
 
 <style scoped>
+.ops{
+    width:100%;
+    min-height:90vh;
+    background-image: url("/public/img/ops.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.wrap{
+    display: table;
+    width:100%;
+}
+.rsscontent{
+    display: table-cell;
+}
+.recommend{
+    display: table-cell;
+    width: 200px;
+    /* background: #FFD0A0; */
+}
 .logo{
     background: no-repeat url("/public/img/icon.png");
     width: 100%;
@@ -238,6 +269,7 @@
                         console.log("get for",url)
                         self.result = value;
                         self.loading = false;
+                        this.scrollToCenter(newVal);
                     },(err)=>{
                         console.log(err);
                         self.loading = false;
@@ -291,6 +323,15 @@
             },
             nextNav(){
                 (this.selected < this.rss.length -1) && (this.selected++)
+            },
+            scrollToCenter(index){
+                let ul = document.getElementsByClassName("nav-ul")[0];
+                let target = document.getElementsByClassName("nav-li")[index];
+                let x = target.offsetLeft - ul.clientWidth * 0.5;
+                console.log(index,x)
+                if( ul && target && x > 0 ){
+                    ul.scrollLeft = x;
+                }
             }
         }
     }
